@@ -1,0 +1,76 @@
+=== INÍCIO cech_simulator.py ===
+#!/usr/bin/env python3
+"""
+CECH Simulator v1.0
+Licença: RobinRight 3.0
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+class CECHNode:
+def init(self, pos):
+self.pos = np.array(pos)
+self.charge = 0.0
+self.alpha_lp = 0.047
+self.neighbors = []
+
+def update(self, intensity, dt):
+    # Simplified model
+    self.charge += intensity * 0.001 * dt
+    self.charge *= 0.999  # Leakage
+    
+    for neighbor in self.neighbors:
+        diff = self.charge - neighbor.charge
+        flow = (diff + self.alpha_lp) / (1.0 + abs(diff * self.alpha_lp))
+        self.charge -= flow * 0.1 * dt
+        neighbor.charge += flow * 0.1 * dt
+    
+    self.charge = np.clip(self.charge, 0.0, 1.0)
+
+class CECHArray:
+def init(self, size=11):
+self.size = size
+self.nodes = {}
+
+    for i in range(size):
+        for j in range(size):
+            self.nodes[(i,j)] = CECHNode((i, j))
+    
+    # Torus connections
+    for i in range(size):
+        for j in range(size):
+            node = self.nodes[(i,j)]
+            neighbors = [
+                ((i+1) % size, j),
+                ((i-1) % size, j),
+                (i, (j+1) % size),
+                (i, (j-1) % size)
+            ]
+            node.neighbors = [self.nodes[n] for n in neighbors]
+
+def simulate(self, hours=24):
+    results = []
+    for hour in range(hours):
+        intensity = max(0, np.sin((hour - 6) * np.pi / 12)) if 6 <= hour <= 18 else 0
+        for node in self.nodes.values():
+            node.update(intensity * 100, 3600)
+        
+        charges = [n.charge for n in self.nodes.values()]
+        results.append({'hour': hour, 'mean': np.mean(charges)})
+    return results
+
+if name == "main":
+cech = CECHArray()
+results = cech.simulate()
+
+hours = [r['hour'] for r in results]
+charges = [r['mean'] for r in results]
+
+plt.plot(hours, charges)
+plt.axhline(y=0.047, color='r', linestyle='--', label='alpha_LP')
+plt.xlabel('Hour')
+plt.ylabel('Mean Charge')
+plt.legend()
+plt.savefig('cech_result.png')
+print("Simulation complete. Saved cech_result.png")
+
+================================================================================ === FIM cech_simulator.py ===

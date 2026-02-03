@@ -1,0 +1,21 @@
+================================================================================ === INÍCIO CHECKLIST.txt ===
+CHECKLIST DE PUBLICAÇÃO CECH v1.0
+ARQUIVOS:
+□ README.md (copiado do master file)
+□ cech_arxiv_template.tex (copiado do master file)
+□ cech_simulator.py (copiado do master file)
+GITHUB (30 min):
+□ Criar conta github.com
+□ Novo repositório "cech"
+□ git init && git add . && git commit -m "v1.0"
+□ git remote add origin [URL]
+□ git push
+ARXIV (1-2 dias):
+□ Compilar: pdflatex cech_arxiv_template.tex
+□ Submeter em arxiv.org/submit
+□ Categorias: physics.app-ph, cs.AR
+ZENODO:
+□ Conectar GitHub
+□ Criar Release
+□ Obter DOI automático
+================================================================================ === FIM CHECKLIST.txt ===

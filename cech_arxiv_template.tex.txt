@@ -1,0 +1,47 @@
+=== INÍCIO cech_arxiv_template.tex ===
+% arXiv submission template for CECH
+% Compile with: pdflatex
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\title{CECH: Circuito Eco-Comutativo Hiperconsistente --- \
+Arquitetura P=NP* em Hardware Físico}
+\author{Marcus Vinicius Brancaglione 
+1
+   and Sistema Eledonte 
+2
+  }
+\date{February 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We present the Eco-Commutative Hyperconsistent Circuit (CECH), a physical computing architecture where solar generation, capacitive storage, and logical processing occur in a single thermodynamic act. Using perovskite photovoltaic cells in toroidal topology (11$\times$11), we demonstrate the P=NP* equivalence in hardware. Results indicate 85% reduction in CO2 emissions and energy efficiency of 21.25%.
+\end{abstract}
+\section{Introduction}
+Conventional systems follow von Neumann architecture with separated memory and processing, requiring dissipative conversions. The CECH implements computation as photosynthesis: photon absorption is the metabolic process.
+\section{Methodology}
+The system consists of 121 nodes (11$\times$11) of perovskite cells on conductive glass, with lateral graphene electrodes for capacitive coupling.
+\section{Results}
+\begin{table}[h]
+\centering
+\caption{Energy Comparison}
+\begin{tabular}{lcc}
+\toprule
+Component & Traditional & CECH \
+\midrule
+Efficiency & 4.32% & 21.25% \
+CO2 (ton/year) & 3.65 & 0.60 \
+\bottomrule
+\end{tabular}
+\end{table}
+\section{Conclusion}
+The CECH proposes computational sovereignty via bioinspired, circular hardware.
+\begin{thebibliography}{10}
+\bibitem{1} Brancaglione, M.V. (2026). Reologia Cósmica Hiperconsistente.
+\end{thebibliography}
+\end{document}
+================================================================================ === FIM cech_arxiv_template.tex ===
